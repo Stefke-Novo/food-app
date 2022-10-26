@@ -1,0 +1,64 @@
+.about-us-h1{
+    text-align: center;
+}
+#aboutCompany,#question,#location,#location-text{
+    text-align: center;
+}
+.about-us-form{
+    border:1px solid black;
+    width: 50%;
+    margin-inline: auto auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 30px 30px 30px;
+    border-radius: 50px;
+    align-items: center;
+}
+.about-us-form input{
+    height: fit-content;
+    width: 100%;
+    margin-inline: auto auto;
+    font-size: larger;
+    text-align: center;
+    width: 60%;
+}
+.about-us-form>*{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-us-form>textarea{
+    min-height: 200px;
+    margin-inline: auto auto;
+    min-width: 80%;
+}
+.about-us-form>button{
+    padding:10px 30px 10px 30px;
+    color: black;
+    border:1px solid rgba(203, 124, 19,0.3);
+    border-radius: 50px;
+    background-color: antiquewhite;
+    font-size: larger;
+    color: rgb(203, 124, 19);
+    transition: background-color 0.6s,border-color 0.6s,color 0.6s;
+}
+.about-us-form>button:hover{
+    background-color: rgb(203, 124, 19);
+    border-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+.img-div{
+    display: flex;
+    justify-content: center;
+}
+.locationAndForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.locationAndForm>*{
+    width: 50%;
+}

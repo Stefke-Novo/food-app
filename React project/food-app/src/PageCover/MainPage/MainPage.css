@@ -1,0 +1,33 @@
+.mainPage h1{
+    text-align: center;
+}
+.mainPage-content{
+    display: grid;
+    grid-template:max-content;
+    grid-template-columns: repeat(2, 1fr);
+}
+.mainPage-content>*{
+    height: 100%;
+}
+.mainPage-content>section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-inline: auto auto;
+}
+.mainPage-content>div{
+    width: 100%;
+    overflow: hidden;
+    display: inline-flex;
+}
+.mainPage-content>div>img{
+    height: auto;
+    max-width: 70%;
+    margin-inline: auto;
+    max-height: 90%;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}

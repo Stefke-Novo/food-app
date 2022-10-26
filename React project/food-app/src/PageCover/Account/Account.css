@@ -1,0 +1,81 @@
+.account-page{
+    display: block;
+}
+.account-page>h1{
+    text-align: center;
+}
+.account-and-ordersList{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    justify-content: space-evenly;
+    min-height: 60vh;
+    height: fit-content;
+}
+.account-and-ordersList>*{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+.account-and-ordersList img{
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+}
+.account-and-ordersList table,.account-and-ordersList table *{
+    border:2px solid black;
+    text-align: center;
+}
+.account-and-ordersList table{
+    border-collapse: collapse;
+}
+.account-and-ordersList td,.account-and-ordersList th{
+    padding: 5px 10px 5px 10px;
+}
+.account-and-ordersList td button{
+    padding: 5px 10px 5px 10px;
+}
+.account-and-ordersList b{
+    border: none;
+}
+.account-options{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.account-options button{
+    padding: 8px 16px 8px 16px;
+    font-size: larger;
+}
+.account-list{
+    height: fit-content;
+    padding: 20px 0px 20px 0px;
+}
+.account-options button:hover{
+    cursor: pointer;
+}
+.account-info{
+    height: 100%;
+    max-height: 50vh;
+    margin-bottom: auto;
+}
+.account-shopping-history{
+    text-align: center;
+}
+.account-shopping-history>table, .account-shopping-history>table *{
+ border:2px solid black;
+ border-collapse: collapse;
+ margin-inline: auto auto;
+}
+.account-shopping-history td, .account-shopping-history th{
+    padding: 5px 10px 5px 10px;
+}
+.account-shopping-history button{
+    padding: 8px 16px 8px 16px;
+    font-size: larger;
+    border: none;
+}
