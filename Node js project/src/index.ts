@@ -1,7 +1,7 @@
 import express ,{Application,Request,Response}from 'express';
 import bodyParser from 'body-parser';
 import cors from "cors";
-import pool from "./Databasebrocker/Databasebrocker";
+import connection from "./Databasebrocker/Databasebrocker";
 
 const port:any = process.env.port||process.env.PORT||5000;
 const apiRoot:string='/api';
@@ -27,4 +27,16 @@ app.get(apiRoot,(req:Request,res:Response)=>{
 
 app.listen(port,()=>{
     console.log(`Connected successfully on port ${port}`);
+})
+
+connection.connect((err)=>{
+    if(err){
+        console.error('error connecting: '+err);
+        return;
+    }
+    console.log('connected as id '+connection.threadId);
+});
+connection.query(`select * from food-app.food;`,(err,res)=>{
+    console.log('result',res);
+    console.log(err)
 })

@@ -55,7 +55,7 @@
     height: fit-content;
     padding: 20px 0px 20px 0px;
 }
-.account-options button:hover{
+.account-options button:hover,.account-info button:hover{
     cursor: pointer;
 }
 .account-info{
@@ -74,7 +74,7 @@
 .account-shopping-history td, .account-shopping-history th{
     padding: 5px 10px 5px 10px;
 }
-.account-shopping-history button{
+.account-shopping-history button,.account-info button{
     padding: 8px 16px 8px 16px;
     font-size: larger;
     border: none;

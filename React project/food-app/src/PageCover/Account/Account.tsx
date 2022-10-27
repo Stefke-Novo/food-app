@@ -1,4 +1,6 @@
 import { Dispatch, MouseEvent, SetStateAction, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import IAccount from "../../Classes/IAccount";
 import IOrdersList from "../../Classes/IOrdersList";
 import IPurchase from "../../Classes/IPurchase";
 import Order from "../../Classes/Order";
@@ -13,9 +15,21 @@ function Account(
             setPurchaseHistory:Dispatch<SetStateAction<IPurchase[]>>,
             totalSpentMoney:number,
             setTotalSpentMoney:Dispatch<SetStateAction<number>>
+            account:IAccount,
+            setAccount:React.Dispatch<React.SetStateAction<IAccount>>,
+            logedInOrRegistered:boolean,
+            setLogedInOrRegistered:React.Dispatch<React.SetStateAction<boolean>>
         }
     ){
-    let {ordersList,setOrdersList,purchaseHistory,setPurchaseHistory,totalSpentMoney,setTotalSpentMoney} = props;
+    let {ordersList,
+        setOrdersList,
+        purchaseHistory,
+        setPurchaseHistory,
+        totalSpentMoney,
+        setTotalSpentMoney,
+        account,
+        setAccount,
+        setLogedInOrRegistered} = props;
     let [totalPrice,setTotalPrice]=useState<number>(0);
     useEffect(()=>{
         let sum:number=0;
@@ -44,6 +58,18 @@ function Account(
         setOrdersList({...ordersList,list:[]});
         setTotalSpentMoney(totalSpentMoney+returnListPrice(ordersList.list));
     }
+    const history = useHistory();
+  
+    const handleRoute = () =>{ 
+      history.push("/login");
+    }
+    function LogOut(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void {
+        e.preventDefault();
+        setLogedInOrRegistered(false);
+        setAccount({...account,name:"",surname:"",username:"",password:""})
+        handleRoute();
+    }
+    
     return(
         <div className="page account-page">
             <h1>Account</h1>
@@ -54,12 +80,12 @@ function Account(
                             <img src="https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg" alt="account" />
                     </div>
                     <p>
-                        Name: <br />
-                        Surname: <br />
-                        username: <br />
+                        Name: {account.name}<br />
+                        Surname: {account.surname}<br />
+                        username: {account.username}<br />
                         Spent money:&ensp; {totalSpentMoney} &euro;
                     </p>
-
+                    <button onClick={(e)=>LogOut(e)}>Log out</button>
                 </div>
                 <div className="account-list">
                     <h2>List for today</h2>
@@ -124,5 +150,8 @@ function Account(
     )
 }
 export default Account;
+
+
+
 
 

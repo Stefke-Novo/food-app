@@ -1,9 +1,9 @@
-import {createPool} from 'mysql';
+import {createConnection} from 'mysql';
 
 //connection with mysql
-const pool = createPool({
+const connection = createConnection({
     host:"localhost",
-    user:'root1',
-    password:'root1'
+    user:"root1",
+    password:"root1"
 })
-export default pool;
+export default connection;

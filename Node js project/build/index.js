@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
+const Databasebrocker_1 = __importDefault(require("./Databasebrocker/Databasebrocker"));
 const port = process.env.port || process.env.PORT || 5000;
 const apiRoot = '/api';
 const app = (0, express_1.default)();
@@ -23,4 +24,15 @@ app.get(apiRoot, (req, res) => {
 });
 app.listen(port, () => {
     console.log(`Connected successfully on port ${port}`);
+});
+Databasebrocker_1.default.connect((err) => {
+    if (err) {
+        console.error('error connecting: ' + err);
+        return;
+    }
+    console.log('connected as id ' + Databasebrocker_1.default.threadId);
+});
+Databasebrocker_1.default.query(`select * from food-app.food;`, (err, res) => {
+    console.log('result', res);
+    console.log(err);
 });
